@@ -91,7 +91,7 @@ class Hiera
                     d.each_key{|k| d[k] = decrypt_any(d[k])}
                     return d
                 else
-                    raise Exception, "Expected String, Array, or Hash, got #{d.class}"
+                    raise YamlgpgError, "Expected String, Array, or Hash, got #{d.class}"
                 end
             end
 
