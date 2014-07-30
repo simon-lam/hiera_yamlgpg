@@ -58,7 +58,7 @@ class Hiera
                         when :hash
                             raise Exception, "Hiera type mismatch: expected Hash and got #{new_answer.class}" unless new_answer.kind_of? Hash
                             answer ||= {}
-                            answer = decrypt_any(new_answer).merge answer
+                            answer = Backend.merge_answer(decrypt_any(new_answer), answer)
                         else
                             answer = decrypt_any(new_answer)
                             break
